@@ -1,0 +1,74 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nose2-junit.xml
+coverage.xml
+*.cover
+hypothesis/
+.pytest_cache/
+
+# PyBuilder
+target/
+
+# MkDocs
+site/
+.site/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.env/
+.venv/
+venv.bak/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python bytecode
+*.pyc
+
+concept.png

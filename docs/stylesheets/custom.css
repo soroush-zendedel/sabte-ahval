@@ -1,0 +1,446 @@
+/* ۱. لود فونت‌ها */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --ink: #1e1e24;
+  /* بک‌گراند بسیار روشن و تمیز مشابه عکس اصلی */
+  --paper: #f8f9fa;
+  --canvas: #ffffff;
+  --crimson: #b91c1c;
+  --crimson-hover: #991b1b;
+  --border-color: rgba(30, 30, 36, 0.06);
+
+  --md-default-bg-color: var(--paper);
+  --md-default-fg-color: var(--ink);
+  --md-primary-fg-color: var(--ink);
+  --md-accent-fg-color: var(--crimson);
+  --md-typeset-a-color: var(--crimson);
+
+  --md-text-font: "Vazirmatn", sans-serif;
+  --md-code-font: "Lora", monospace;
+}
+
+/* =========================================
+   استایل‌های عمومی (ظاهر، رنگ، فونت)
+   این موارد در تمامی دستگاه‌ها اعمال می‌شوند
+   ========================================= */
+
+body,
+input,
+button,
+select,
+textarea,
+div,
+span,
+a,
+.md-typeset,
+.md-nav__link,
+.md-header__topic,
+.md-header__button,
+.md-header__title,
+.md-search__input,
+.md-footer {
+  font-family: "Vazirmatn", sans-serif !important;
+}
+
+code,
+kbd,
+pre,
+samp,
+.md-code {
+  font-family: "Lora", monospace !important;
+}
+
+body {
+  background-color: var(--paper) !important;
+  background-image: none !important;
+  color: var(--ink);
+}
+
+.md-header {
+  background-color: var(--canvas) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+.md-header__button,
+.md-header__topic,
+.md-header__title,
+.md-search__icon {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+}
+
+/* جلوگیری از دو خطی شدن عنوان سایت در عرض‌های کم */
+.md-header__title,
+.md-header__topic,
+.md-ellipsis {
+  white-space: nowrap !important;
+}
+
+/* فرم جستجو */
+.md-search__form {
+  background-color: rgba(30, 30, 36, 0.04) !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background-color: var(--canvas) !important;
+  border-color: rgba(30, 30, 36, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.05) !important;
+}
+
+.md-search__input {
+  color: var(--ink) !important;
+}
+
+.md-search__input::placeholder {
+  color: rgba(30, 30, 36, 0.5) !important;
+}
+
+.md-search__icon {
+  color: rgba(30, 30, 36, 0.7) !important;
+}
+
+.md-search__icon:hover {
+  color: var(--crimson) !important;
+}
+
+/* تایپوگرافی داخل مقاله */
+.md-typeset h1 {
+  color: var(--ink) !important;
+  font-weight: 800 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1.8rem !important;
+}
+
+.md-typeset h2 {
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem !important;
+  font-weight: 700 !important;
+  font-size: 1.3rem !important;
+}
+
+.md-typeset a {
+  color: var(--crimson) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+  color: var(--crimson-hover) !important;
+  text-decoration: underline;
+}
+
+/* استایل ظاهری منوها (چه در سایدبار چه در منوی کشویی موبایل) */
+.md-nav__title {
+  background: transparent !important;
+  color: var(--ink) !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+  box-shadow: none !important;
+  /* padding: 0 0 0.75rem 0 !important; */
+  margin-bottom: 0.5rem !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.md-nav__title[for="__drawer"] {
+  display: none !important;
+
+  /* display: flex !important; */
+  /* align-items: center !important; */
+  gap: 0.75rem !important;
+  padding: 1rem 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.md-nav__title[for="__drawer"] .md-logo {
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  display: flex !important;
+}
+
+.md-nav__link {
+  color: rgba(30, 30, 36, 0.7) !important;
+  transition: all 0.2s ease;
+  font-size: 0.9rem !important;
+}
+
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: var(--crimson) !important;
+  font-weight: 700 !important;
+  transform: translateX(-3px);
+}
+
+/* تنظیمات پایه کانتینر اصلی مقاله (نوار گرادیان بالای کارت) */
+.md-content {
+  background-color: var(--canvas) !important;
+  position: relative;
+}
+
+.md-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  z-index: 10;
+}
+
+/* =========================================
+   دکمه شناور بازگشت به سایت اصلی
+   ========================================= */
+.floating-back-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: var(--canvas);
+  color: var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  z-index: 99;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-back-btn svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.floating-back-btn:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.25);
+  transform: translateY(-4px);
+}
+
+.floating-back-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.md-sidebar--primary {
+  z-index: 50;
+  /* اطمینان از اینکه سایدبار اصلی بالای سایر عناصر قرار دارد */
+}
+
+/* =========================================
+   چیدمان واکنش‌گرا (ریسپانسیو)
+   ========================================= */
+
+/* --- استایل‌های کارتی برای سایدبار دوم (فهرست موضوعات) در تبلت و دسکتاپ --- */
+@media screen and (min-width: 60em) {
+  .md-sidebar--secondary {
+    width: 15rem !important;
+    flex: 0 0 15rem !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .md-sidebar--secondary,
+  .md-sidebar--secondary .md-sidebar__scrollwrap,
+  .md-sidebar--secondary .md-sidebar__inner,
+  .md-sidebar--secondary .md-nav {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__scrollwrap {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__inner {
+    position: relative !important;
+    background-color: var(--canvas) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07), 0 5px 15px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 1.5rem !important;
+    height: max-content !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    border-radius: 0.75rem 0 0 0.75rem;
+    z-index: 10;
+  }
+}
+
+/* --- استایل‌های کارتی برای سایدبار اول (منوی اصلی) فقط در دسکتاپ --- */
+/* دلیل: در تبلت، این منو به شکل کشویی باز می‌شود و نباید ظاهر کارتی بگیرد */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 15rem !important;
+    flex: 0 0 15rem !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .md-sidebar--primary,
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary .md-sidebar__inner,
+  .md-sidebar--primary .md-nav {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner {
+    position: relative !important;
+    background-color: var(--canvas) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07), 0 5px 15px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 1.5rem !important;
+    height: max-content !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    border-radius: 0 0.75rem 0.75rem 0;
+    z-index: 10;
+  }
+}
+
+/* --- ۱. حالت دسکتاپ (تنظیمات کارت اصلی و فاصله‌ها) --- */
+@media screen and (min-width: 76.25em) {
+
+  .md-main__inner,
+  .md-header__inner {
+    max-width: 80rem !important;
+  }
+
+  .md-main__inner {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    align-items: flex-start !important;
+  }
+
+  .md-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 10px rgba(0, 0, 0, 0.01) !important;
+    border: 1px solid var(--border-color);
+    padding: 3rem 4rem !important;
+    /* پدینگ وسیع در دسکتاپ */
+  }
+
+  .md-sidebar--secondary {
+    padding-right: 2.5rem !important;
+    padding-left: 1rem !important;
+    /* فاصله از لبه چپ صفحه */
+  }
+
+  .md-sidebar--primary {
+    padding-left: 2.5rem !important;
+    padding-right: 1rem !important;
+    /* فاصله از لبه راست صفحه */
+  }
+}
+
+/* --- ۲. حالت تبلت (رفع مشکل به هم ریختگی و فاصله‌دهی) --- */
+@media screen and (min-width: 60em) and (max-width: 76.24em) {
+  .md-main__inner {
+    margin-top: 2rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .md-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2.5rem !important;
+    /* پدینگ مناسب برای عرض تبلت */
+  }
+
+  /* ایجاد فاصله بین کارت اصلی و سایدبار موضوعات در تبلت و فاصله از لبه صفحه */
+  .md-sidebar--secondary {
+    padding-right: 2rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+/* --- ۳. حالت موبایل (طراحی فلت و جمع و جور) --- */
+@media screen and (max-width: 59.9375em) {
+  .md-main__inner {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .md-content {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.5rem 1rem 5rem !important;
+    /* پدینگ ۵rem در پایین برای جلوگیری از تداخل با دکمه شناور */
+    border: none !important;
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* سایز دکمه شناور در موبایل */
+  .floating-back-btn {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+}
+
+/* اصلاح ساختار برای چسبیدن فوتر */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.md-container {
+  flex: 1;
+}
+
+/* این اطمینان می‌دهد که فوتر در پایین‌ترین نقطه قرار می‌گیرد */
+.md-footer {
+  width: 100%;
+  margin-top: auto !important;
+}
+

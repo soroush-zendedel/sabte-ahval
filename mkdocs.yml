@@ -1,0 +1,46 @@
+site_name: ثبت‌احوال (سروش زنده‌دل)
+site_description: دفتری برای نوشته‌ها، درددل‌ها و اشعار
+site_author: Soroush Zendedel
+site_url: https://soroush-zendedel.github.io/sabte-ahval/
+
+theme:
+  name: material
+  language: fa
+  font: false
+  direction: rtl
+  custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+
+  features:
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - header.autohide
+    - content.code.copy
+
+extra_css:
+  - stylesheets/custom.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+
+nav:
+  - صفحه اصلی: index.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+extra:
+  generator: false
