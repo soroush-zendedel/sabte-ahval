@@ -444,3 +444,166 @@ body {
   margin-top: auto !important;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   پنل درباره نویسنده (جایگزین فهرست موضوعات)
+   ========================================= */
+.author-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.author-title {
+  color: var(--ink);
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.author-avatar-wrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 1.25rem;
+  padding: 4px;
+  background-color: var(--canvas);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.author-avatar-wrapper:hover {
+  transform: translateY(-3px);
+  border-color: rgba(185, 28, 28, 0.3);
+}
+
+.author-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.author-bio {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(30, 30, 36, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.author-social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.author-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 36, 0.04);
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+
+.author-social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.author-social-links a:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+/* استایل زیرعنوان (تخصص‌ها) */
+.author-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--crimson);
+  margin-bottom: 1.25rem;
+}
+
+/* تنظیمات اسکرول برای متن بیوگرافی */
+.scrollable-bio {
+  max-height: 220px; /* حداکثر ارتفاع اختصاص یافته به متن */
+  overflow-y: auto;
+  padding-right: 8px; /* فاصله از لبه برای جا دادن اسکرول‌بار */
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(30, 30, 36, 0.8);
+}
+
+/* تنظیم فاصله پاراگراف‌ها داخل بیوگرافی */
+.scrollable-bio p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.scrollable-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* استایل اختصاصی نقل‌قول (Quote) */
+.author-quote {
+  border-right: 3px solid var(--crimson);
+  margin: 1rem 0;
+  padding: 0.75rem 1rem 0.75rem 0;
+  background: rgba(185, 28, 28, 0.04);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  border-radius: 4px 0 0 4px;
+}
+
+/* شخصی‌سازی شکل اسکرول‌بار مرورگرهای بر پایه وب‌کیت (کروم، سافاری و ادج) */
+.scrollable-bio::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollable-bio::-webkit-scrollbar-track {
+  background: rgba(30, 30, 36, 0.04);
+  border-radius: 4px;
+}
+
+.scrollable-bio::-webkit-scrollbar-thumb {
+  background: rgba(185, 28, 28, 0.5); /* زرشکی ملایم */
+  border-radius: 4px;
+}
+
+.scrollable-bio::-webkit-scrollbar-thumb:hover {
+  background: var(--crimson);
+}
