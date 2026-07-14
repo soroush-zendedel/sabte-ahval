@@ -1129,3 +1129,163 @@ body {
 
 
 
+
+
+
+
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (روش Template Extending)
+   ========================================================= */
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی مینیمال و کپسولی)
+   ========================================================= */
+
+/* ۱. مخفی کردن بنر در دسکتاپ (برای جلوگیری از نمایش تکراری) */
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی هماهنگ با سایت)
+   ========================================================= */
+
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی مینیمال و مبتنی بر Grid)
+   ========================================================= */
+
+.mobile-author-banner {
+  display: none;
+}
+
+@media screen and (max-width: 76.24em) {
+  
+  .mobile-author-banner {
+    display: block;
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  .author-profile-card-mobile {
+    /* جایگزینی Flexbox با Grid برای جلوگیری از فشردگی عناصر */
+    display: grid;
+    /* ستون اول: عکس | ستون دوم: متون با قابلیت اشغال فضای باقیمانده | ستون سوم: آیکون‌ها */
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    background-color: var(--canvas);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden; 
+  }
+
+  .author-profile-card-mobile::before,
+  .author-profile-card-mobile::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    z-index: 10;
+  }
+  .author-profile-card-mobile::before { top: 0; }
+  .author-profile-card-mobile::after { bottom: 0; }
+
+  /* تنظیمات آواتار */
+  .author-profile-card-mobile .author-avatar-wrapper {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* کشیده شدن عکس در هر دو سطر */
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    padding: 2px;
+    background-color: var(--canvas);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+  }
+
+  .author-profile-card-mobile .author-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* بخش اطلاعات (نام و تخصص) */
+  .author-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    align-self: end; /* نزدیک کردن نام به بیوگرافی */
+  }
+
+  .author-profile-card-mobile .author-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 0.1rem 0;
+    border: none;
+    padding: 0;
+  }
+
+  .author-profile-card-mobile .author-subtitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--crimson);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* بخش بیوگرافی */
+  .author-bio {
+    grid-column: 2 / 4; /* گسترش بیوگرافی تا انتهای کارت برای خوانایی بهتر */
+    grid-row: 2 / 3;
+    align-self: start;
+    margin-top: 0.15rem;
+  }
+
+  .author-profile-card-mobile .author-bio p {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: rgba(30, 30, 36, 0.55); 
+    margin: 0;
+    font-style: italic; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* شبکه‌های اجتماعی */
+  .author-profile-card-mobile .author-social-links {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    align-self: center;
+  }
+  
+  .author-profile-card-mobile .author-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px; 
+    background-color: transparent; 
+    color: rgba(30, 30, 36, 0.5); 
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+  }
+
+  .author-profile-card-mobile .author-social-links a:hover {
+    color: var(--crimson);
+    background-color: rgba(185, 28, 28, 0.05); 
+  }
+}
