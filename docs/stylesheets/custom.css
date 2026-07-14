@@ -281,7 +281,8 @@ body {
     box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07), 0 5px 15px rgba(0, 0, 0, 0.03) !important;
     border: 1px solid var(--border-color) !important;
     padding: 1.5rem !important;
-    height: max-content !important;
+    /* height: max-content !important; */
+    height: auto !important;
   }
 
   .md-sidebar--secondary .md-sidebar__inner::before {
@@ -356,7 +357,7 @@ body {
   .md-main__inner {
     margin-top: 2rem !important;
     margin-bottom: 1rem !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
   }
 
   .md-content {
@@ -428,14 +429,8 @@ body {
 }
 
 /* اصلاح ساختار برای چسبیدن فوتر */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.md-container {
-  flex: 1;
+.md-main {
+  min-height: calc(100vh - 200px); /* حداقل ارتفاع برای هل دادن فوتر به پایین */
 }
 
 /* این اطمینان می‌دهد که فوتر در پایین‌ترین نقطه قرار می‌گیرد */
@@ -897,3 +892,229 @@ body {
 .custom-badge-date i {
   color: rgba(30, 30, 36, 0.4);
 }
+
+
+
+
+
+/* =========================================
+   خنثی‌سازی استایل‌های سیاه و مزاحم MkDocs
+   ========================================= */
+.md-footer {
+  background-color: transparent !important; /* حذف بکگراند تیره پیش‌فرض */
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.md-footer__meta {
+  display: none !important; /* پنهان کردن بخش پیش‌فرض متادیتا در فوتر */
+}
+
+/* =========================================
+   استایل‌های اختصاصی فوترِ جدیدِ شما
+   ========================================= */
+.custom-site-footer {
+  width: 100%;
+  margin-top: auto !important; 
+  padding: 2.5rem 1.5rem 1.5rem !important;
+  box-sizing: border-box;
+}
+
+.footer-card {
+  position: relative;
+  background: var(--canvas) !important; /* استفاده از رنگ سفید کارت */
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  padding: 3rem 2rem 1.5rem;
+  max-width: 80rem; 
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* جلوگیری از بیرون‌زدگی رنگ‌ها */
+}
+
+.footer-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+}
+
+/* ساختار شبکه‌ای فوتر */
+.footer-content-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: right;
+}
+
+.footer-title {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.footer-subtitle {
+  color: var(--crimson);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(30, 30, 36, 0.75);
+  margin: 0;
+  max-width: 90%;
+}
+
+/* استایل لیست پیوندها */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: rgba(30, 30, 36, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.footer-links a i {
+  font-size: 0.8rem;
+  color: rgba(30, 30, 36, 0.4);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--crimson) !important;
+  transform: translateX(-4px); /* کمی حرکت به سمت چپ (برای زبان فارسی) */
+}
+
+.footer-links a:hover i {
+  color: var(--crimson);
+}
+
+/* استایل شبکه‌های اجتماعی */
+#footer-link:hover i {
+  color: var(--crimson) !important;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 36, 0.04);
+  color: var(--ink);
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2);
+}
+
+/* کپی‌رایت */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(30, 30, 36, 0.5);
+  font-weight: 500;
+}
+
+/* اصلاح چیدمان برای تبلت و موبایل */
+@media screen and (max-width: 60em) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  
+  .footer-desc {
+    max-width: 100%;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+  
+  .footer-socials {
+    justify-content: center;
+  }
+  
+  .footer-links a:hover {
+    transform: none; 
+  }
+}
+
+
+
+
+
+
+/* پنهان کردن اسکرول‌بار پیش‌فرض سایدبار هنگام رسیدن به فوتر */
+.md-sidebar__scrollwrap {
+  scrollbar-width: none !important; /* فایرفاکس */
+  -ms-overflow-style: none !important; /* اینترنت اکسپلورر و اج */
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  display: none !important; /* کروم، سافاری و اپرا */
+}
+
+
+/* اسکرول داخلی مستقل برای منوهای طولانی در دسکتاپ */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar__scrollwrap {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(185, 28, 28, 0.3) transparent;
+  }
+  
+  .md-sidebar__scrollwrap::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    background-color: rgba(185, 28, 28, 0.4);
+    border-radius: 4px;
+  }
+}
+
+
+
