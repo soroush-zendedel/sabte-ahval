@@ -1,0 +1,1432 @@
+/* ۱. لود فونت‌ها */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css');
+
+:root {
+  --ink: #1e1e24;
+  /* بک‌گراند بسیار روشن و تمیز مشابه عکس اصلی */
+  --paper: #f8f9fa;
+  --canvas: #ffffff;
+  --crimson: #b91c1c;
+  --crimson-hover: #991b1b;
+  --border-color: rgba(30, 30, 36, 0.06);
+
+  --md-default-bg-color: var(--paper);
+  --md-default-fg-color: var(--ink);
+  --md-primary-fg-color: var(--ink);
+  --md-accent-fg-color: var(--crimson);
+  --md-typeset-a-color: var(--crimson);
+
+  --md-text-font: "Vazirmatn", sans-serif;
+  --md-code-font: "Lora", monospace;
+}
+
+/* =========================================
+   استایل‌های عمومی (ظاهر، رنگ، فونت)
+   این موارد در تمامی دستگاه‌ها اعمال می‌شوند
+   ========================================= */
+
+/* ۲. اعمال فونت ساحل روی تیترها و دقیقاً روی تگ‌های متن در هدر بالای صفحه */
+h1, h2, h3, h4, h5, h6, 
+.md-header *,
+.md-header__topic .md-ellipsis,
+.md-header__title .md-ellipsis,
+.md-nav__title *,
+.md-tabs__link {
+  font-family: 'Sahel', 'Vazirmatn', sans-serif !important;
+}
+
+body,
+input,
+button,
+select,
+textarea,
+div,
+span,
+a,
+.md-typeset,
+.md-nav__link,
+.md-header__topic,
+.md-header__button,
+.md-header__title,
+.md-search__input,
+.md-footer {
+  font-family: "Vazirmatn", sans-serif !important;
+}
+
+code,
+kbd,
+pre,
+samp,
+.md-code {
+  font-family: "Lora", monospace !important;
+}
+
+body {
+  background-color: var(--paper) !important;
+  background-image: none !important;
+  color: var(--ink);
+}
+
+.md-header {
+  background-color: var(--canvas) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+.md-header__button,
+.md-header__topic,
+.md-header__title,
+.md-search__icon {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+}
+
+/* جلوگیری از دو خطی شدن عنوان سایت در عرض‌های کم */
+.md-header__title,
+.md-header__topic,
+.md-ellipsis {
+  white-space: nowrap !important;
+}
+
+/* فرم جستجو */
+.md-search__form {
+  background-color: rgba(30, 30, 36, 0.04) !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background-color: var(--canvas) !important;
+  border-color: rgba(30, 30, 36, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.05) !important;
+}
+
+.md-search__input {
+  color: var(--ink) !important;
+}
+
+.md-search__input::placeholder {
+  color: rgba(30, 30, 36, 0.5) !important;
+}
+
+.md-search__icon {
+  color: rgba(30, 30, 36, 0.7) !important;
+}
+
+.md-search__icon:hover {
+  color: var(--crimson) !important;
+}
+
+/* تایپوگرافی داخل مقاله */
+.md-typeset h1 {
+  color: var(--ink) !important;
+  font-weight: 800 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1.8rem !important;
+}
+
+.md-typeset h2 {
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem !important;
+  font-weight: 700 !important;
+  font-size: 1.3rem !important;
+}
+
+.md-typeset a {
+  color: var(--crimson) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+  color: var(--crimson-hover) !important;
+  text-decoration: underline;
+}
+
+/* استایل ظاهری منوها (چه در سایدبار چه در منوی کشویی موبایل) */
+.md-nav__title {
+  background: transparent !important;
+  color: var(--ink) !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+  box-shadow: none !important;
+  /* padding: 0 0 0.75rem 0 !important; */
+  margin-bottom: 0.5rem !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.md-nav__title[for="__drawer"] {
+  display: none !important;
+
+  /* display: flex !important; */
+  /* align-items: center !important; */
+  gap: 0.75rem !important;
+  padding: 1rem 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.md-nav__title[for="__drawer"] .md-logo {
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  display: flex !important;
+}
+
+.md-nav__link {
+  color: rgba(30, 30, 36, 0.7) !important;
+  transition: all 0.2s ease;
+  font-size: 0.9rem !important;
+}
+
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: var(--crimson) !important;
+  font-weight: 700 !important;
+  transform: translateX(-3px);
+}
+
+/* تنظیمات پایه کانتینر اصلی مقاله (نوار گرادیان بالای کارت) */
+.md-content {
+  background-color: var(--canvas) !important;
+  position: relative;
+}
+
+.md-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  z-index: 10;
+}
+
+/* =========================================
+   دکمه شناور بازگشت به سایت اصلی
+   ========================================= */
+.floating-back-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: var(--canvas);
+  color: var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  z-index: 99;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-back-btn svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.floating-back-btn:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.25);
+  transform: translateY(-4px);
+}
+
+.floating-back-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.md-sidebar--primary {
+  z-index: 50;
+  /* اطمینان از اینکه سایدبار اصلی بالای سایر عناصر قرار دارد */
+}
+
+/* =========================================
+   چیدمان واکنش‌گرا (ریسپانسیو)
+   ========================================= */
+
+/* --- استایل‌های کارتی برای سایدبار دوم (فهرست موضوعات) در تبلت و دسکتاپ --- */
+@media screen and (min-width: 60em) {
+  .md-sidebar--secondary {
+    width: 15rem !important;
+    flex: 0 0 15rem !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .md-sidebar--secondary,
+  .md-sidebar--secondary .md-sidebar__scrollwrap,
+  .md-sidebar--secondary .md-sidebar__inner,
+  .md-sidebar--secondary .md-nav {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__scrollwrap {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__inner {
+    position: relative !important;
+    background-color: var(--canvas) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07), 0 5px 15px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 1.5rem !important;
+    /* height: max-content !important; */
+    height: auto !important;
+  }
+
+  .md-sidebar--secondary .md-sidebar__inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    border-radius: 0.75rem 0 0 0.75rem;
+    z-index: 10;
+  }
+}
+
+/* --- استایل‌های کارتی برای سایدبار اول (منوی اصلی) فقط در دسکتاپ --- */
+/* دلیل: در تبلت، این منو به شکل کشویی باز می‌شود و نباید ظاهر کارتی بگیرد */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 15rem !important;
+    flex: 0 0 15rem !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .md-sidebar--primary,
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary .md-sidebar__inner,
+  .md-sidebar--primary .md-nav {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner {
+    position: relative !important;
+    background-color: var(--canvas) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07), 0 5px 15px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 1.5rem !important;
+    height: max-content !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    border-radius: 0 0.75rem 0.75rem 0;
+    z-index: 10;
+  }
+}
+
+/* --- ۱. حالت دسکتاپ (تنظیمات کارت اصلی و فاصله‌ها) --- */
+@media screen and (min-width: 76.25em) {
+
+  .md-main__inner,
+  .md-header__inner {
+    max-width: 80rem !important;
+  }
+
+  .md-main__inner {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    align-items: stretch !important;
+  }
+
+  .md-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 10px rgba(0, 0, 0, 0.01) !important;
+    border: 1px solid var(--border-color);
+    padding: 3rem 4rem !important;
+    /* پدینگ وسیع در دسکتاپ */
+  }
+
+  .md-sidebar--secondary {
+    padding-right: 2.5rem !important;
+    padding-left: 1rem !important;
+    /* فاصله از لبه چپ صفحه */
+  }
+
+  .md-sidebar--primary {
+    padding-left: 2.5rem !important;
+    padding-right: 1rem !important;
+    /* فاصله از لبه راست صفحه */
+  }
+}
+
+/* --- ۲. حالت تبلت (رفع مشکل به هم ریختگی و فاصله‌دهی) --- */
+@media screen and (min-width: 60em) and (max-width: 76.24em) {
+  .md-main__inner {
+    margin-top: 2rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .md-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2.5rem !important;
+    /* پدینگ مناسب برای عرض تبلت */
+  }
+
+  /* ایجاد فاصله بین کارت اصلی و سایدبار موضوعات در تبلت و فاصله از لبه صفحه */
+  .md-sidebar--secondary {
+    padding-right: 2rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+/* --- ۳. حالت موبایل (طراحی فلت و جمع و جور) --- */
+@media screen and (max-width: 59.9375em) {
+  .md-main__inner {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .md-content {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.5rem 1rem 5rem !important;
+    /* پدینگ ۵rem در پایین برای جلوگیری از تداخل با دکمه شناور */
+    border: none !important;
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* سایز دکمه شناور در موبایل */
+  .floating-back-btn {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+}
+
+/* اصلاح ساختار برای چسبیدن فوتر */
+.md-main {
+  min-height: calc(100vh - 200px); /* حداقل ارتفاع برای هل دادن فوتر به پایین */
+}
+
+/* این اطمینان می‌دهد که فوتر در پایین‌ترین نقطه قرار می‌گیرد */
+.md-footer {
+  width: 100%;
+  margin-top: auto !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   پنل درباره نویسنده (جایگزین فهرست موضوعات)
+   ========================================= */
+.author-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.author-title {
+  color: var(--ink);
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.author-avatar-wrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 1.25rem;
+  padding: 4px;
+  background-color: var(--canvas);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.author-avatar-wrapper:hover {
+  transform: translateY(-3px);
+  border-color: rgba(185, 28, 28, 0.3);
+}
+
+.author-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.author-bio {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(30, 30, 36, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.author-social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.author-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 36, 0.04);
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+
+/* استایل برای زمانی که از svg استفاده می‌شود */
+.author-social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* استایل برای زمانی که از فونت‌اوسوم استفاده می‌شود */
+.author-social-links i {
+  font-size: 1rem; /* معادل ۱۶ پیکسل که برای دایره ۳۶ پیکسلی عالی است */
+  line-height: 1;
+}
+
+.author-social-links a:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+/* استایل زیرعنوان (تخصص‌ها) */
+.author-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--crimson);
+  margin-bottom: 1.25rem;
+}
+
+/* تنظیمات اسکرول برای متن بیوگرافی */
+.scrollable-bio {
+  max-height: 220px; /* حداکثر ارتفاع اختصاص یافته به متن */
+  overflow-y: auto;
+  padding-right: 8px; /* فاصله از لبه برای جا دادن اسکرول‌بار */
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(30, 30, 36, 0.8);
+}
+
+/* تنظیم فاصله پاراگراف‌ها داخل بیوگرافی */
+.scrollable-bio p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.scrollable-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* استایل اختصاصی نقل‌قول (Quote) */
+.author-quote {
+  border-right: 3px solid var(--crimson);
+  margin: 1rem 0;
+  padding: 0.75rem 1rem 0.75rem 0;
+  background: rgba(185, 28, 28, 0.04);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  border-radius: 4px 0 0 4px;
+}
+
+/* شخصی‌سازی شکل اسکرول‌بار مرورگرهای بر پایه وب‌کیت (کروم، سافاری و ادج) */
+.scrollable-bio::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollable-bio::-webkit-scrollbar-track {
+  background: rgba(30, 30, 36, 0.04);
+  border-radius: 4px;
+}
+
+.scrollable-bio::-webkit-scrollbar-thumb {
+  background: rgba(185, 28, 28, 0.5); /* زرشکی ملایم */
+  border-radius: 4px;
+}
+
+.scrollable-bio::-webkit-scrollbar-thumb:hover {
+  background: var(--crimson);
+}
+
+
+
+
+
+
+/* =========================================
+   کارت‌های مطالب (اشعار، نوشته‌ها، مقالات)
+   ========================================= */
+/* =========================================
+   کارت‌های مطالب (همراه با عکس)
+   ========================================= */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.post-card {
+  background-color: var(--canvas);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  /* پدینگ کلی حذف شد تا عکس به لبه‌ها بچسبد */
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  overflow: hidden; /* این خط باعث می‌شود گوشه‌های عکس هم مانند کارت گرد شود */
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(185, 28, 28, 0.08);
+  border-color: rgba(185, 28, 28, 0.2);
+}
+
+/* استایل محفظه عکس */
+.post-card-image {
+  width: 100%;
+  height: 180px; /* می‌توانید این عدد را برای تغییر ارتفاع عکس عوض کنید */
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* باعث می‌شود عکس بدون دفرمه شدن، کادر را پر کند */
+  transition: transform 0.4s ease;
+}
+
+/* افکت زوم ملایم روی عکس هنگام هاور */
+.post-card:hover .post-card-image img {
+  transform: scale(1.05);
+}
+
+/* محتوای متنی کارت */
+.post-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post-category {
+  font-size: 0.8rem;
+  color: var(--crimson);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+/* =========================================
+   استایل عنوان در کارت‌های صفحه اصلی
+   ========================================= */
+.post-card h3 {
+  color: var(--ink) !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 0.75rem 0 !important;
+  position: relative;
+  padding-right: 14px; /* ایجاد فاصله برای خط کناری */
+  border-bottom: none !important; 
+}
+
+/* یک خط عمودی ظریف و هنری کنار عنوان کارت */
+.post-card h3::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 3px;
+  background-color: var(--crimson);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: rgba(30, 30, 36, 0.75);
+  line-height: 1.7;
+  flex-grow: 1;
+  margin: 0 0 1.2rem 0;
+}
+
+.post-meta {
+  font-size: 0.8rem;
+  color: rgba(30, 30, 36, 0.5);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+}
+
+
+
+
+
+
+/* =========================================
+   هدر هنری و صمیمانه پست‌ها
+   ========================================= */
+.artistic-post-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+}
+
+/* =========================================
+   استایل عنوان هنری (با کاراکترهای نگارشی)
+   ========================================= */
+.artistic-title {
+  /* فونت به همان وزیرمتن اصلی برمی‌گردد */
+  color: var(--ink) !important;
+  font-weight: 900 !important;
+  font-size: 2.1rem !important;
+  margin-bottom: 1.25rem !important;
+  line-height: 1.4 !important;
+  position: relative;
+  display: inline-block; /* برای اینکه کاراکترها دقیقاً به متن بچسبند */
+}
+
+/* اضافه کردن گیومه‌های تزئینی به دو طرف متن */
+.artistic-title::before,
+.artistic-title::after {
+  color: var(--crimson);
+  font-weight: 300;
+  opacity: 0.6; /* کمی کمرنگ‌تر از متن اصلی تا تو ذوق نزند */
+  font-size: 2.4rem;
+  vertical-align: text-bottom;
+  line-height: 1;
+}
+
+.artistic-title::before {
+  content: "«";
+  margin-left: 8px;
+}
+
+.artistic-title::after {
+  content: "»";
+  margin-right: 8px;
+}
+
+.artistic-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* استایل ظریف‌تر برای تگ‌ها در نمای هنری */
+.custom-badge-category,
+.custom-badge-date {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-badge-category {
+  color: var(--crimson);
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.custom-badge-date {
+  color: rgba(30, 30, 36, 0.5);
+  font-weight: 500;
+}
+
+/* =========================================
+   عکس اصلی صفحه (Hero Image)
+   ========================================= */
+.post-hero-image {
+  width: 100%;
+  height: 420px;
+  border-radius: 16px; /* گوشه‌های گردتر برای حس نرمی و صمیمیت */
+  overflow: hidden;
+  margin-bottom: 3rem; 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04); /* سایه بسیار محو شبیه به قاب عکس */
+  border: none;
+}
+
+.post-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* در موبایل ارتفاع عکس را منطقی‌تر می‌کنیم */
+@media screen and (max-width: 59.9375em) {
+  .post-hero-image {
+    height: 250px;
+    border-radius: 12px;
+  }
+  .artistic-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* =========================================
+   تغییرات محتوای متنی برای حس خواندن کتاب
+   ========================================= */
+/* چون عنوان را در بالا فراخوانی کردیم، اگر داخل مارک‌داون هم عنوان نوشته‌اید، آن را پنهان می‌کنیم تا دو بار تکرار نشود */
+.artistic-content .md-content__inner > h1:first-child {
+  display: none !important;
+}
+
+/* استایل متن برای خوانایی هنری‌تر */
+.artistic-content p {
+  font-size: 1.05rem;
+  line-height: 2.2; /* فاصله بیشتر خطوط برای آرامش چشم */
+  color: rgba(30, 30, 36, 0.85);
+  text-align: justify; /* تراز کردن متن دو طرف شبیه صفحات کتاب */
+}
+
+
+
+
+
+
+/* =========================================
+   هدر اختصاصی صفحات پست (تاریخ و دسته‌بندی)
+   ========================================= */
+.custom-post-header {
+  margin-top: 0.5rem;
+  margin-bottom: -1rem; /* برای نزدیک شدن به تیتر اصلی (H1) */
+}
+
+.custom-post-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.custom-badge-category {
+  background-color: rgba(185, 28, 28, 0.06);
+  color: var(--crimson);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(185, 28, 28, 0.15);
+  box-shadow: 0 2px 8px rgba(185, 28, 28, 0.05);
+}
+
+.custom-badge-date {
+  color: rgba(30, 30, 36, 0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-badge-date i {
+  color: rgba(30, 30, 36, 0.4);
+}
+
+
+
+
+
+/* =========================================
+   خنثی‌سازی استایل‌های سیاه و مزاحم MkDocs
+   ========================================= */
+.md-footer {
+  background-color: transparent !important; /* حذف بکگراند تیره پیش‌فرض */
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.md-footer__meta {
+  display: none !important; /* پنهان کردن بخش پیش‌فرض متادیتا در فوتر */
+}
+
+/* =========================================
+   استایل‌های اختصاصی فوترِ جدیدِ شما
+   ========================================= */
+.custom-site-footer {
+  width: 100%;
+  margin-top: auto !important; 
+  padding: 2.5rem 1.5rem 1.5rem !important;
+  box-sizing: border-box;
+}
+
+.footer-card {
+  position: relative;
+  background: var(--canvas) !important; /* استفاده از رنگ سفید کارت */
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  padding: 3rem 2rem 1.5rem;
+  max-width: 80rem; 
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* جلوگیری از بیرون‌زدگی رنگ‌ها */
+}
+
+.footer-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+}
+
+/* ساختار شبکه‌ای فوتر */
+.footer-content-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: right;
+}
+
+.footer-title {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.footer-subtitle {
+  color: var(--crimson);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(30, 30, 36, 0.75);
+  margin: 0;
+  max-width: 90%;
+}
+
+/* استایل لیست پیوندها */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: rgba(30, 30, 36, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.footer-links a i {
+  font-size: 0.8rem;
+  color: rgba(30, 30, 36, 0.4);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--crimson) !important;
+  transform: translateX(-4px); /* کمی حرکت به سمت چپ (برای زبان فارسی) */
+}
+
+.footer-links a:hover i {
+  color: var(--crimson);
+}
+
+/* استایل شبکه‌های اجتماعی */
+#footer-link:hover i {
+  color: var(--crimson) !important;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 36, 0.04);
+  color: var(--ink);
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background-color: var(--crimson);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2);
+}
+
+/* کپی‌رایت */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(30, 30, 36, 0.5);
+  font-weight: 500;
+}
+
+/* اصلاح چیدمان برای تبلت و موبایل */
+@media screen and (max-width: 60em) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  
+  .footer-desc {
+    max-width: 100%;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+  
+  .footer-socials {
+    justify-content: center;
+  }
+  
+  .footer-links a:hover {
+    transform: none; 
+  }
+}
+
+
+
+
+
+
+/* پنهان کردن اسکرول‌بار پیش‌فرض سایدبار هنگام رسیدن به فوتر */
+.md-sidebar__scrollwrap {
+  scrollbar-width: none !important; /* فایرفاکس */
+  -ms-overflow-style: none !important; /* اینترنت اکسپلورر و اج */
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  display: none !important; /* کروم، سافاری و اپرا */
+}
+
+
+/* اسکرول داخلی مستقل برای منوهای طولانی در دسکتاپ */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar__scrollwrap {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(185, 28, 28, 0.3) transparent;
+  }
+  
+  .md-sidebar__scrollwrap::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    background-color: rgba(185, 28, 28, 0.4);
+    border-radius: 4px;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (روش Template Extending)
+   ========================================================= */
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی مینیمال و کپسولی)
+   ========================================================= */
+
+/* ۱. مخفی کردن بنر در دسکتاپ (برای جلوگیری از نمایش تکراری) */
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی هماهنگ با سایت)
+   ========================================================= */
+
+/* =========================================================
+   تنظیمات بنر اختصاصی موبایل (طراحی مینیمال و مبتنی بر Grid)
+   ========================================================= */
+
+.mobile-author-banner {
+  display: none;
+}
+
+@media screen and (max-width: 76.24em) {
+  
+  .mobile-author-banner {
+    display: block;
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  .author-profile-card-mobile {
+    /* جایگزینی Flexbox با Grid برای جلوگیری از فشردگی عناصر */
+    display: grid;
+    /* ستون اول: عکس | ستون دوم: متون با قابلیت اشغال فضای باقیمانده | ستون سوم: آیکون‌ها */
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    background-color: var(--canvas);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden; 
+  }
+
+  .author-profile-card-mobile::before,
+  .author-profile-card-mobile::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    z-index: 10;
+  }
+  .author-profile-card-mobile::before { top: 0; }
+  .author-profile-card-mobile::after { bottom: 0; }
+
+  /* تنظیمات آواتار */
+  .author-profile-card-mobile .author-avatar-wrapper {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* کشیده شدن عکس در هر دو سطر */
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    padding: 2px;
+    background-color: var(--canvas);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+  }
+
+  .author-profile-card-mobile .author-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* بخش اطلاعات (نام و تخصص) */
+  .author-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    align-self: end; /* نزدیک کردن نام به بیوگرافی */
+  }
+
+  .author-profile-card-mobile .author-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 0.1rem 0;
+    border: none;
+    padding: 0;
+  }
+
+  .author-profile-card-mobile .author-subtitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--crimson);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* بخش بیوگرافی */
+  .author-bio {
+    grid-column: 2 / 4; /* گسترش بیوگرافی تا انتهای کارت برای خوانایی بهتر */
+    grid-row: 2 / 3;
+    align-self: start;
+    margin-top: 0.15rem;
+  }
+
+  .author-profile-card-mobile .author-bio p {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: rgba(30, 30, 36, 0.55); 
+    margin: 0;
+    font-style: italic; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* شبکه‌های اجتماعی */
+  .author-profile-card-mobile .author-social-links {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    align-self: center;
+  }
+  
+  .author-profile-card-mobile .author-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px; 
+    background-color: transparent; 
+    color: rgba(30, 30, 36, 0.5); 
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+  }
+
+  .author-profile-card-mobile .author-social-links a:hover {
+    color: var(--crimson);
+    background-color: rgba(185, 28, 28, 0.05); 
+  }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   استایل اختصاصی تگ‌ها (Tags)
+   ========================================= */
+.custom-badge-tag {
+  background-color: transparent;
+  color: rgba(30, 30, 36, 0.7);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px dashed rgba(30, 30, 36, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-badge-tag:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+  background-color: rgba(185, 28, 28, 0.04);
+}
+
+.custom-badge-tag i {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+
+
+li .author-profile-card {
+  display: none !important;
+}
+
+
+/* افزودن آیکون هشتگ به منوی برچسب‌ها در سایدبار */
+a.md-nav__link[href*="tags"]::before {
+    content: "\f292"; /* کد آیکون هشتگ در FontAwesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: 6px; /* ایجاد فاصله با متن در چینش راست‌چین */
+    opacity: 0.7;
+    transition: color 0.2s ease;
+}
+
+
+
+
+/* تغییر رنگ آیکون هنگام هاور شدن موس (هماهنگ با استایل‌های سایت) */
+a.md-nav__link[href*="tags"]:hover::before {
+    color: var(--crimson);
+    opacity: 1;
+}
+
+/* حذف رنگ قرمز از تگ‌های پیش‌فرض قالب در حالت عادی */
+.md-typeset .md-tag {
+    color: rgba(30, 30, 36, 0.7) !important; /* رنگ متن عادی (خاکستری/مشکی ملایم) */
+    background-color: rgba(30, 30, 36, 0.04) !important; /* پس‌زمینه طوسی بسیار روشن */
+    transition: all 0.2s ease;
+}
+
+/* استایل تگ‌ها در حالت هاور (Hover) بدون رنگ قرمز */
+.md-typeset .md-tag:hover {
+    color: var(--ink) !important; /* تیره‌تر شدن متن هنگام عبور موس */
+    background-color: rgba(30, 30, 36, 0.1) !important; /* کمی تیره‌تر شدن پس‌زمینه */
+    border-color: transparent !important;
+}
+
+/* تغییر رنگ تگ انتخاب‌شده (Active) در صفحه لیست برچسب‌ها که پس‌زمینه قرمز یکدست داشت */
+.md-typeset .md-tag[data-md-state="active"], 
+.md-typeset .md-tag--active {
+    color: var(--canvas) !important; /* رنگ متن سفید/روشن */
+    background-color: var(--ink) !important; /* پس‌زمینه تیره (مشکی) به جای قرمز */
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   استایل تگ‌ها در کارت‌های صفحه اصلی
+   ========================================= */
+.post-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto; /* هُل دادن تگ‌ها و متادیتا به پایین کارت */
+    margin-bottom: 1rem;
+}
+
+.post-card-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(30, 30, 36, 0.6); /* رنگ خاکستری ملایم */
+    background-color: rgba(30, 30, 36, 0.04); /* پس‌زمینه خنثی */
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* افکت ملایم هنگام هاور شدن کل کارت */
+.post-card:hover .post-card-tag {
+    background-color: rgba(30, 30, 36, 0.08);
+    color: var(--ink);
+}
+
+/* اصلاح مارجینِ خلاصه متن (Excerpt) برای هماهنگی با تگ‌ها */
+.post-card-content .post-excerpt {
+    flex-grow: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-socials i {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.footer-links a i {
+  font-size: 1rem !important; 
+  color: rgba(30, 30, 36, 0.6); /* کمی پررنگ‌تر برای خوانایی بهتر */
+  margin-left: 4px; /* ایجاد فاصله مناسب با متن فارسی */
+}
