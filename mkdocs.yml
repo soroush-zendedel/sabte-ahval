@@ -46,7 +46,15 @@ plugins:
   - awesome-pages
   - tags:
       tags_file: tags.md # با این کار می‌توانید بعدا یک صفحه به نام tags.md بسازید تا لیست همه تگ‌ها آنجا جمع شود
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
   
+  - git-revision-date-localized:
+        enable_creation_date: true
+        type: timeago # یا مقدار date برای نمایش تاریخ دقیق
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -59,3 +67,7 @@ markdown_extensions:
 
 extra:
   generator: false
+  meta:
+    - name: google-site-verification
+      content: <meta name="google-site-verification" content="1zazcy1c77XqQzgQ472O63fbqTXGxB2ZrFkt2kVu-uo" />
+  

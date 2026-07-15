@@ -1,5 +1,6 @@
 ---
 title: صفحه اصلی
+description: خلاصه‌ای جذاب از متن نوشته که کلمات کلیدی اصلی در آن وجود دارد و کاربر را ترغیب می‌کند تا روی لینک شما در گوگل کلیک کند.
 ---
 
 # <img src="assets/images/logo2.png" width="48" style="vertical-align: middle; margin-left: 12px;"> **به ثبت‌احوالِ من خوش آمدید!**
