@@ -860,7 +860,7 @@ body {
   font-size: 1.05rem;
   line-height: 2.2; /* فاصله بیشتر خطوط برای آرامش چشم */
   color: rgba(30, 30, 36, 0.85);
-  text-align: justify; /* تراز کردن متن دو طرف شبیه صفحات کتاب */
+  text-align: right; /* تغییر از justify به right */
 }
 
 
@@ -1429,4 +1429,65 @@ a.md-nav__link[href*="tags"]:hover::before {
   font-size: 1rem !important; 
   color: rgba(30, 30, 36, 0.6); /* کمی پررنگ‌تر برای خوانایی بهتر */
   margin-left: 4px; /* ایجاد فاصله مناسب با متن فارسی */
+}
+
+/* =========================================
+   اصلاح ساختار کلیک کارت‌ها و رفع تداخل GLightbox
+   ========================================= */
+
+/* فعال‌سازی موقعیت نسبی برای کارت تا لینک بتواند روی آن پهن شود */
+.post-card {
+    position: relative; 
+}
+
+/* چون محفظه عکس حالا تگ a است، باید رفتار بلاک داشته باشد */
+.post-card-image {
+    display: block; 
+}
+
+/* استایل‌دهی مجدد لینک عنوان تا رنگ و خط زیرین پیش‌فرض را نگیرد */
+.post-card h3 a.card-full-link {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* ترفند جادویی: بسط دادن لینک عنوان به اندازه کل مساحت کارت */
+.post-card h3 a.card-full-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* قرارگیری در لایه رویی */
+}
+
+/* بالا بردن لایه تگ‌ها تا اگر در آینده خواستید آن‌ها را لینک کنید، زیر لینک اصلی کارت دفن نشوند */
+.post-card-tags {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+
+
+/* استایل کانتینر و کپشن عکس اصلی */
+.post-hero-container {
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+
+.post-hero-container .post-hero-image {
+  margin-bottom: 0.8rem; /* ایجاد فاصله ظریف بین عکس و کپشن */
+}
+
+.post-hero-caption {
+  font-size: 0.85rem;
+  color: rgba(30, 30, 36, 0.5); /* خاکستری ملایم برای عدم تداخل با متن اصلی */
+  font-style: italic;
+  font-family: "Sahel", "Vazirmatn", sans-serif !important;
+  line-height: 1.6;
+  padding: 0 1rem;
 }
