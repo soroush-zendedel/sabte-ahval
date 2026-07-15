@@ -531,10 +531,17 @@ body {
   transition: all 0.2s ease;
 }
 
+/* استایل برای زمانی که از svg استفاده می‌شود */
 .author-social-links svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+/* استایل برای زمانی که از فونت‌اوسوم استفاده می‌شود */
+.author-social-links i {
+  font-size: 1rem; /* معادل ۱۶ پیکسل که برای دایره ۳۶ پیکسلی عالی است */
+  line-height: 1;
 }
 
 .author-social-links a:hover {
@@ -1411,4 +1418,15 @@ a.md-nav__link[href*="tags"]:hover::before {
 .post-card-content .post-excerpt {
     flex-grow: 0;
     margin-bottom: 1rem;
+}
+
+.footer-socials i {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.footer-links a i {
+  font-size: 1rem !important; 
+  color: rgba(30, 30, 36, 0.6); /* کمی پررنگ‌تر برای خوانایی بهتر */
+  margin-left: 4px; /* ایجاد فاصله مناسب با متن فارسی */
 }
