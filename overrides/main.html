@@ -73,12 +73,23 @@
     {% endif %}
   </div>
   
-  <!-- عکس اصلی (با لبه‌های نرم‌تر در CSS تنظیم می‌شود) -->
-  {% if page.meta and page.meta.image %}
+<!-- عکس اصلی (با لبه‌های نرم‌تر در CSS تنظیم می‌شود) -->
+<!-- عکس اصلی با ساختار معنایی (Semantic HTML) برای سئوی بهتر -->
+{% if page.meta and page.meta.image %}
+  <figure class="post-hero-container">
     <div class="post-hero-image">
-      <img src="{{ base_url }}/{{ page.meta.image }}" alt="{{ page.title }}">
+      <a href="{{ base_url }}/{{ page.meta.image }}" class="glightbox" data-type="image" title="{{ page.title }}">
+        <!-- استفاده از alt اختصاصی؛ در صورت عدم وجود، از عنوان صفحه استفاده می‌شود -->
+        <img src="{{ base_url }}/{{ page.meta.image }}" alt="{{ page.meta.image_alt | default(page.title) }}">
+      </a>
     </div>
-  {% endif %}
+    {% if page.meta.excerpt or page.meta.image_caption %}
+      <figcaption class="post-hero-caption">
+        {{ page.meta.image_caption | default(page.meta.excerpt) }}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
   
   <!-- محتوای متنی -->
   <div class="artistic-content">

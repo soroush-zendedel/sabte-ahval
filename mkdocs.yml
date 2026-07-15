@@ -50,7 +50,12 @@ plugins:
       minify_html: true
       minify_js: true
       minify_css: true
-  
+  - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom # افکت باز شدن عکس (zoom, fade, none)
+        zoomable: true
+        draggable: true
   - git-revision-date-localized:
         enable_creation_date: true
         type: timeago # یا مقدار date برای نمایش تاریخ دقیق
@@ -64,10 +69,10 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
+  - pymdownx.blocks.caption # برای ساخت کپشن (توضیحات زیر عکس) به صورت استاندارد
 
 extra:
   generator: false
   meta:
     - name: google-site-verification
       content: <meta name="google-site-verification" content="1zazcy1c77XqQzgQ472O63fbqTXGxB2ZrFkt2kVu-uo" />
-  

@@ -32,7 +32,7 @@ def define_env(env):
                     
                     metadata = extract_metadata(content)
                     
-                    if metadata:
+                    if metadata and not metadata.get('draft', False):
                         rel_dir = os.path.relpath(root, docs_dir).replace('\\', '/')
                         url_path = f"{rel_dir}/{filename.replace('.md', '/')}"
                         
@@ -52,8 +52,9 @@ def define_env(env):
         html = '<div class="post-grid">\n'
         for post in posts[:limit]:
             img_src = post['image'] if post['image'] else 'assets/images/default-cover.svg'
-            image_html = f'<div class="post-card-image"><img src="{img_src}" alt="{post["title"]}"></div>'
-            
+            # image_html = f'<div class="post-card-image"><img src="{img_src}" alt="{post["title"]}"></div>'
+            # image_html = f'<div class="post-card-image"><img src="{img_src}" alt="{post["title"]}" class="no-lightbox"></div>'
+            image_html = f'<div class="post-card-image"><img src="{img_src}" alt="{post["title"]}" class="skip-lightbox"></div>'
             # --- بخش جدید: تولید کدهای HTML برای تگ‌ها ---
             tags_html = ''
             if post['tags']:
@@ -64,12 +65,15 @@ def define_env(env):
                 tags_html += '</div>'
             # -----------------------------------------------
 
+            # در این ساختار، کل کارت تبدیل به div شده و لینک‌ها به صورت مجزا به عکس و عنوان داده شده‌اند
             html += f"""
-            <a href="{post['url']}" class="post-card">
-                {image_html}
+            <div class="post-card">
+                <a href="{post['url']}" class="post-card-image">
+                    <img src="{img_src}" alt="{post["title"]}">
+                </a>
                 <div class="post-card-content">
                     <span class="post-category">{post['category']}</span>
-                    <h3>{post['title']}</h3>
+                    <h3><a href="{post['url']}" class="card-full-link">{post['title']}</a></h3>
                     <p class="post-excerpt">{post['excerpt']}</p>
                     {tags_html} <!-- تگ‌ها اینجا قرار می‌گیرند -->
                     <div class="post-meta">
@@ -77,7 +81,7 @@ def define_env(env):
                         <span>خواندن</span>
                     </div>
                 </div>
-            </a>
+            </div>
             """
         html += '</div>\n'
         
