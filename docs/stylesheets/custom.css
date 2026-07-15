@@ -1289,3 +1289,126 @@ body {
     background-color: rgba(185, 28, 28, 0.05); 
   }
 }
+
+
+
+
+
+
+
+
+/* =========================================
+   استایل اختصاصی تگ‌ها (Tags)
+   ========================================= */
+.custom-badge-tag {
+  background-color: transparent;
+  color: rgba(30, 30, 36, 0.7);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px dashed rgba(30, 30, 36, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-badge-tag:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+  background-color: rgba(185, 28, 28, 0.04);
+}
+
+.custom-badge-tag i {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+
+
+li .author-profile-card {
+  display: none !important;
+}
+
+
+/* افزودن آیکون هشتگ به منوی برچسب‌ها در سایدبار */
+a.md-nav__link[href*="tags"]::before {
+    content: "\f292"; /* کد آیکون هشتگ در FontAwesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: 6px; /* ایجاد فاصله با متن در چینش راست‌چین */
+    opacity: 0.7;
+    transition: color 0.2s ease;
+}
+
+
+
+
+/* تغییر رنگ آیکون هنگام هاور شدن موس (هماهنگ با استایل‌های سایت) */
+a.md-nav__link[href*="tags"]:hover::before {
+    color: var(--crimson);
+    opacity: 1;
+}
+
+/* حذف رنگ قرمز از تگ‌های پیش‌فرض قالب در حالت عادی */
+.md-typeset .md-tag {
+    color: rgba(30, 30, 36, 0.7) !important; /* رنگ متن عادی (خاکستری/مشکی ملایم) */
+    background-color: rgba(30, 30, 36, 0.04) !important; /* پس‌زمینه طوسی بسیار روشن */
+    transition: all 0.2s ease;
+}
+
+/* استایل تگ‌ها در حالت هاور (Hover) بدون رنگ قرمز */
+.md-typeset .md-tag:hover {
+    color: var(--ink) !important; /* تیره‌تر شدن متن هنگام عبور موس */
+    background-color: rgba(30, 30, 36, 0.1) !important; /* کمی تیره‌تر شدن پس‌زمینه */
+    border-color: transparent !important;
+}
+
+/* تغییر رنگ تگ انتخاب‌شده (Active) در صفحه لیست برچسب‌ها که پس‌زمینه قرمز یکدست داشت */
+.md-typeset .md-tag[data-md-state="active"], 
+.md-typeset .md-tag--active {
+    color: var(--canvas) !important; /* رنگ متن سفید/روشن */
+    background-color: var(--ink) !important; /* پس‌زمینه تیره (مشکی) به جای قرمز */
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   استایل تگ‌ها در کارت‌های صفحه اصلی
+   ========================================= */
+.post-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto; /* هُل دادن تگ‌ها و متادیتا به پایین کارت */
+    margin-bottom: 1rem;
+}
+
+.post-card-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(30, 30, 36, 0.6); /* رنگ خاکستری ملایم */
+    background-color: rgba(30, 30, 36, 0.04); /* پس‌زمینه خنثی */
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* افکت ملایم هنگام هاور شدن کل کارت */
+.post-card:hover .post-card-tag {
+    background-color: rgba(30, 30, 36, 0.08);
+    color: var(--ink);
+}
+
+/* اصلاح مارجینِ خلاصه متن (Excerpt) برای هماهنگی با تگ‌ها */
+.post-card-content .post-excerpt {
+    flex-grow: 0;
+    margin-bottom: 1rem;
+}

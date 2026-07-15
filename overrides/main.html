@@ -40,13 +40,30 @@
     <h1 class="artistic-title">{{ page.title }}</h1>
     
     <!-- متادیتا -->
-    {% if page.meta and (page.meta.category or page.meta.date) %}
+    {% if page.meta and (page.meta.category or page.meta.date or page.meta.tags) %}
       <div class="artistic-meta">
         {% if page.meta.category %}
           <span class="custom-badge-category">
             <i class="fa-solid fa-tag"></i> {{ page.meta.category }}
           </span>
         {% endif %}
+        
+        {% if page.meta.tags %}
+          <!-- با دستور [:3] فقط ۳ تگ اول جدا می‌شوند -->
+          {% for tag in page.meta.tags[:3] %}
+            <span class="custom-badge-tag">
+              <i class="fa-solid fa-hashtag"></i> {{ tag }}
+            </span>
+          {% endfor %}
+          
+          <!-- اگر تعداد تگ‌ها بیشتر از ۳ بود، سه نقطه نمایش بده -->
+          {% if page.meta.tags|length > 3 %}
+            <span class="custom-badge-tag" style="padding: 3px 8px; opacity: 0.6; border: none; cursor: default;" title="و {{ page.meta.tags|length - 3 }} تگ دیگر در پایین مطلب">
+              ...
+            </span>
+          {% endif %}
+        {% endif %}
+        
         {% if page.meta.date %}
           <span class="custom-badge-date">
             <i class="fa-solid fa-calendar-days"></i> {{ page.meta.date }}
