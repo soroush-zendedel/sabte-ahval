@@ -15,7 +15,8 @@ def extract_metadata(content):
 
 def define_env(env):
     @env.macro
-    def get_recent_posts(base_folder="posts", limit=6):
+    # پارامتر only_main_page را با مقدار پیش‌فرض False اضافه کردیم
+    def get_recent_posts(base_folder="posts", limit=6, only_main_page=False):
         docs_dir = env.conf['docs_dir']
         target_dir = os.path.join(docs_dir, base_folder)
         
@@ -32,22 +33,28 @@ def define_env(env):
                     
                     metadata = extract_metadata(content)
                     
+                    # در اینجا بررسی می‌کنیم که پست پیش‌نویس نباشد
                     if metadata and not metadata.get('draft', False):
+                        
+                        # بررسی شرط جدید: اگر درخواست شده فقط پست‌های صفحه اصلی نمایش داده شوند و این پست تگ main_page: true را نداشت، از آن عبور کن
+                        if only_main_page and not metadata.get('main_page', False):
+                            continue
+                            
                         rel_dir = os.path.relpath(root, docs_dir).replace('\\', '/')
                         url_path = f"{rel_dir}/{filename.replace('.md', '/')}"
                         
-                        # در بخش posts.append این کلید را اضافه کنید
                         posts.append({
                             'title': metadata.get('title', 'بدون عنوان'),
                             'category': metadata.get('category', 'عمومی'),
                             'date': metadata.get('date', 'بدون تاریخ'),
                             'excerpt': metadata.get('excerpt', '...'),
                             'image': metadata.get('image', ''), 
-                            'tags': metadata.get('tags', []), # این خط اضافه شد
+                            'tags': metadata.get('tags', []),
                             'url': url_path
                         })
         
         posts.sort(key=lambda x: x['date'], reverse=True)
+        # ... ادامه کدهای تولید HTML که در فایل شما وجود دارد ...
         
         html = '<div class="post-grid">\n'
         for post in posts[:limit]:

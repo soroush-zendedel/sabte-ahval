@@ -7,4 +7,4 @@ description: اینجا دفتری‌ست؛ برای ثبت نوشته‌ها، 
 
 اینجا دفتری‌ست؛ برای ثبت نوشته‌ها، درددل‌ها، اشعار و هرآنچه که در ذهنم می‌گذرد.
 
-{{ get_recent_posts() }}
+{{ get_recent_posts(limit=20, only_main_page=True) }}
